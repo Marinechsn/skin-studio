@@ -58,3 +58,5 @@ function escapeHtml(v){return String(v||'').replace(/[&<>"']/g,ch=>({'&':'&amp;'
 draw();const params=new URLSearchParams(location.search),returnedBooking=params.get('booking_id'),returnedOrder=params.get('token');if(params.get('paypal')&&returnedBooking){try{const saved=JSON.parse(sessionStorage.getItem('skinStudioBooking')||'null');if(saved&&saved.bookingId===returnedBooking){chosen=saved.chosen||[];date=saved.date||'';hour=saved.hour||''}}catch{}bookingId=returnedBooking;step=4;if(params.get('paypal')==='success'&&returnedOrder){paypalOrderId=returnedOrder;paymentLoading=true;setTimeout(finishPaypal,0)}else if(params.get('paypal')==='cancel'){paymentError='Le paiement a été annulé. Votre demande reste en attente.'}}
 draw();
 </script></body></html>
+
+<script>(()=>{const sync=()=>{const img=document.querySelector(".home .hero-image img");if(img)img.src="./studio-accueil.jpeg"};sync();new MutationObserver(sync).observe(document.getElementById("page"),{childList:true,subtree:true})})();</script>
